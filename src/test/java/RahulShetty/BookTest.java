@@ -8,15 +8,6 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-/**
- * 
- * 
- * @author AnkurBakshi
- * This class does complete test of adding and deleting - It is a complete test in itself
- *
- */
-
-
 public class BookTest {
   @Test(dataProvider="BooksData", enabled=true)
   public void f(String isbn, String aisle) {
