@@ -8,6 +8,15 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
+/**
+ * 
+ * 
+ * @author AnkurBakshi
+ * This class does complete test of adding and deleting - It is a complete test in itself
+ *
+ */
+
+
 public class BookTest {
   @Test(dataProvider="BooksData", enabled=true)
   public void f(String isbn, String aisle) {
@@ -24,13 +33,13 @@ public class BookTest {
 	            .and()
 	            .body(BodyPost.getBody(isbn,aisle))
 	            .when()
-	            .post("/posts")
+	            .post("/Library/Addbook.php")
 	            .then()
 	            .extract().response();
 	  
 	  System.out.println("Response starts======= " + response.asString() + "==== ends");
 
-	  //System.out.println("ID returned : " + BodyPost.getDeleteBody(isbn, aisle));
+	  //System.out.println("ID returned : " + getDeleteBody(isbn, aisle));
   }
 
   
@@ -51,6 +60,6 @@ public class BookTest {
 	  return new Object[][] {{"chch","1989"}, {"td","2222"}, {"cd","3333"}};
   }
   
-
+ 
 }
 
